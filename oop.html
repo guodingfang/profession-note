@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="renderer" content="webkit"/>
+  <meta name="description" content="面向对象"/>
+  <meta name="keywords" content="面向对象"/>
+  <title>面向对象</title>
+</head>
+<body>
+<script>
+  /**
+   * 类的声明
+   */
+  function Animal() {
+    this.name = 'name'
+  }
+
+  /**
+   * ES6中的class的声明
+   */
+  class Animal2 {
+    constructor() {
+      this.name = name;
+    }
+  }
+
+  /**
+   * 实例化
+   */
+  console.log(`new Animal()`, new Animal(), `new Animal2()`, new Animal2());
+
+  /**
+   * 借助构造函数实现继承
+   * 原理：通过call方法改变父类中this指向子类上
+   * 缺点：原型链并未继承
+   */
+  function Parent1() {
+    this.name = 'parent1';
+  }
+  Parent1.prototype.say = function () {};
+  function Child1() {
+    // 在子类中执行父类，改变this指向Child1的实例上
+    Parent1.call(this); // apply
+    this.type = 'child1';
+  }
+  console.log(`new Child1()`, new Child1());
+
+  /**
+   * 借助原型链实现继承
+   * 原理：将子类的原型对象修改为父类的实例
+   * 缺点：原型链上的原型对象共用，引用对象指针一样。
+   */
+  function Parent2() {
+    this.name = 'parent2';
+    this.play = [1, 2, 3];
+  }
+  function Child2() {
+    this.type = 'child2';
+  }
+  Child2.prototype = new Parent2();
+  console.log(`new Child2()`, new Child2());
+
+  const s1 = new Child2();
+  const s2 = new Child2();
+
+  console.log('s1.play', s1.play, 's2.play', s2.play);
+  s1.play.push(4);
+  console.log('s1.play', s1.play, 's2.play', s2.play);
+
+</script>
+</body>
+</html>
