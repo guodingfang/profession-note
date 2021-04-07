@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="renderer" content="webkit"/>
+  <meta name="description" content="原型链"/>
+  <meta name="keywords" content="原型链,__proto__,prototype,constructor,instanceof"/>
+  <title>原型链</title>
+</head>
+<body>
+<script>
+
+  // 第一种方式：字面量
+  const o1 = {name: 'o1'};
+  const o2 = new Object({name: 'o2'});
+
+  // 第二种方式：通过构造函数
+  const M = function (name) {
+    this.name = name
+  };
+  const o3 = new M('o3');
+
+  // 第三种方式：Object.create()
+  const p = {name: 'p'};
+  const o4 = Object.create(p);
+
+  M.prototype.say = function () {
+    console.log('say hi')
+  }
+
+  const o5 = new M('o5');
+
+  // new运算符
+  const new2 = function (func) {
+    const o = Object.create(func.prototype);
+    const k = func.call(o);
+    if(typeof k === 'object') {
+      return k;
+    } else {
+      return o;
+    }
+  }
+</script>
+</body>
+</html>

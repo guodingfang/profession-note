@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="renderer" content="webkit"/>
+  <meta name="description" content="CSS盒模型"/>
+  <meta name="keywords" content="CSS盒模型,标准盒模型,IE盒模型,margin,padding,content"/>
+  <title>boxModel</title>
+</head>
+<body>
+  <style>
+    #sec {
+      background-color: rgba(155,155,155,1);
+      overflow: hidden;
+      width: 100%;
+    }
+    .child {
+      margin-top: 10px;
+      height: 100px;
+      background-color: rgba(215,135,150,1);
+    }
+  </style>
+  <section id="sec">
+    <article class="child"></article>
+  </section>
+
+  <style>
+    #margin {
+      margin-top: 50px;
+      background-color: rgba(200,215,185,1);
+      overflow: hidden;
+    }
+    #margin p {
+      margin-top: 5px;
+      margin-bottom: 25px;
+      background-color: rgba(135,135,135,1);
+    }
+  </style>
+  <!-- BFC元素内垂直方向边距重叠问题 -->
+  <section id="margin">
+    <p>1</p>
+    <div style="overflow: hidden;margin-bottom: 35px">
+      <p>0</p>
+    </div>
+    <p>2</p>
+    <p>3</p>
+  </section>
+
+  <style>
+    #layout {
+      background-color: rgba(160, 155, 150, 1);
+      /*height: 200px;*/
+    }
+    .left {
+      background-color: rosybrown;
+      float: left;
+      width: 150px;
+      height: 150px;
+    }
+    .right {
+      background-color: blanchedalmond;
+      height: 200px;
+      overflow: hidden;
+    }
+  </style>
+  <section id="layout">
+    <div class="left"></div>
+    <div class="right"></div>
+  </section>
+
+  <style>
+    #float {
+      background-color: darkkhaki;
+      overflow: hidden;
+    }
+    .float {
+      float: left;
+
+    }
+  </style>
+  <section id="float">
+    <div class="float">浮动元素</div>
+  </section>
+</body>
+</html>

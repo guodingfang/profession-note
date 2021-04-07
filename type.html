@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="renderer" content="webkit"/>
+  <meta name="description" content="类型转换"/>
+  <meta name="keywords" content="类型转换,Boolean,Null,Undefined,Number,Sting,Symbol,Object"/>
+  <title>类型转换</title>
+</head>
+<body>
+<script>
+  console.group('Number类型转换');
+  console.log(`Number(123)`, Number(123));
+  console.log(`Number('123')`, Number('123'));
+  console.log(`Number('123abc')`, Number('123abc'));
+  console.log(`Number('')`, Number(''));
+  console.log('Number(false)', Number(false));
+  console.log('Number(true)', Number(true));
+  console.log('Number(undefined)', Number(undefined));
+  console.log('Number(null)', Number(null));
+
+  console.log('Number({a: 1})', Number({a: 1}));
+  console.groupEnd();
+</script>
+
+<script>
+  console.group('String类型转换');
+  console.log(`String(123)`, String(123));
+  console.log(`String('abc')`, String('abc'));
+  console.log(`String(true)`, String(true));
+  console.log(`String(undefined)`, String(undefined));
+  console.log(`String(null)`, String(null));
+  console.log(`String({a:1, to...})`, String({
+    a: 1,
+    toString() {
+      return {b:2}
+    },
+    valueOf() {
+      return 'b'
+    },
+  }));
+  console.groupEnd();
+</script>
+
+<script>
+  console.group('Boolean类型转换');
+  console.log(`Boolean(undefined)`, Boolean(undefined));
+  console.log(`Boolean(null)`, Boolean(null));
+  console.log(`Boolean(0)`, Boolean(0));
+  console.log(`Boolean(NaN)`, Boolean(NaN));
+  console.log(`Boolean('')`, Boolean(''));
+  console.groupEnd();
+</script>
+
+<script>
+
+</script>
+</body>
+</html>

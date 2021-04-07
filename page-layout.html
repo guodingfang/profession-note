@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--
+    charset 属性规定 HTML 文档的字符编码
+   -->
+  <meta charset="UTF-8">
+  <!--
+    meta标签name="viewport"属性，是专门用来针对手机移动端的网页进行优化而设置的
+    ----
+      width           控制视区的宽度，设置 width=device-width 成为理想视区宽度，即布局视区宽度=可见视区宽度
+      user-scalable   是否允许用户进行缩放, no 代表不允许，yes代表允许
+      initial-scale   设置页面初始化缩放值，通常设为1
+      maximum-scale   允许用户缩放的最大比例值
+      minimum-scale   允许用户缩放的最小比例值
+   -->
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+  <!--
+    IE=edge告诉IE使用最新的引擎渲染网页，chrome=1则可以激活Chrome
+   -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <!--
+    双核浏览器优先使用webkit内核渲染
+   -->
+  <meta name="renderer" content="webkit"/>
+  <!--
+    用简短的文字描述网站或网页的主要内容，有利于各大搜索引擎的抓取收录你的网站或网页
+   -->
+  <meta name="description" content="页面布局"/>
+  <!--
+    keywords关键词，是告诉搜索引擎你的网站或页面内容主要围绕哪些词组展开的，有多个关键词的话，尽量将重要的关键词放在前面，次要的往后排。
+    content属性值的关键词最好不要超过三个，保持在三个或三个以内为好！每个关键词不宜太长，关键词与关键词之间用英文的逗号“,”隔开。
+   -->
+  <meta name="keywords" content="页面布局,float,table,flex,grid,absolute"/>
+  <title>pageLayout</title>
+  <style>
+    .layout {
+      width: 100%;
+      min-height: 100px;
+      margin-bottom: 10px;
+      /*overflow: hidden;*/
+      overflow: hidden;
+    }
+
+    .layout-left {
+      width: 300px;
+      min-height: 100px;
+      background-color: rgb(255, 255, 45);
+    }
+
+    .layout-center {
+      width: auto;
+      background-color: rgb(210, 125, 255);
+    }
+
+    .layout-right {
+      width: 300px;
+      min-height: 100px;
+      background-color: rgb(255, 45, 35);
+    }
+    h2, p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <style>
+      .float-left {
+        float: left;
+      }
+      .float-right {
+        float: right;
+      }
+    </style>
+    <article class="layout float-layout">
+      <div class="layout-left float-left"></div>
+      <div class="layout-right float-right"></div>
+      <div class="layout-center float-center">
+        <h2>标题</h2>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+      </div>
+    </article>
+
+    <style>
+      .absolute-layout {
+        position: relative;
+      }
+      .absolute-left {
+        position: absolute;
+        left: 0;
+      }
+      .absolute-right {
+        position: absolute;
+        right: 0;
+      }
+      .absolute-center {
+        position: absolute;
+        left: 300px;
+        right: 300px;
+      }
+    </style>
+    <article class="layout absolute-layout">
+      <div class="layout-left absolute-left"></div>
+      <div class="layout-right absolute-right"></div>
+      <div class="layout-center absolute-center">
+        <h2>标题</h2>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+      </div>
+    </article>
+
+    <style>
+      .flex-layout {
+        display: flex;
+      }
+      .flex-center {
+        flex: 1;
+      }
+    </style>
+    <article class="layout flex-layout">
+      <div class="layout-left flex-left"></div>
+      <div class="layout-center flex-center">
+        <h2>标题</h2>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+      </div>
+      <div class="layout-right flex-right"></div>
+    </article>
+
+    <style>
+      .grid-layout {
+        display: grid;
+        grid-template-columns: 300px auto 300px;
+      }
+    </style>
+    <article class="layout grid-layout">
+      <div class="layout-left grid-left"></div>
+      <div class="layout-center grid-center">
+        <h2>标题</h2>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+      </div>
+      <div class="layout-right grid-right"></div>
+    </article>
+
+    <style>
+      .table-layout {
+        display: table;
+      }
+      .table-left,
+      .table-center,
+      .table-right {
+        display: table-cell;
+      }
+
+    </style>
+    <article class="layout table-layout">
+      <div class="layout-left table-left"></div>
+      <div class="layout-center table-center">
+        <h2>标题</h2>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+        <p>中间内容区域</p>
+      </div>
+      <div class="layout-right table-right"></div>
+    </article>
+  </section>
+</body>
+</html>
