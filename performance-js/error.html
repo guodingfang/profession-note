@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="renderer" content="webkit"/>
+  <meta name="description" content="错误监控"/>
+  <meta name="keywords" content="错误监控,error"/>
+  <title>错误监控</title>
+
+  <script>
+    window.addEventListener('error', (e) => {
+      console.log('捕获阶段[error]:', e)
+    }, true)
+  </script>
+</head>
+<body>
+<script src="/baidu.com/test.js"></script>
+<script>
+  (new Image()).src='http://baidu.com/tesjk?r=tksjk';
+</script>
+</body>
+</html>

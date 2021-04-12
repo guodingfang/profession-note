@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="renderer" content="webkit"/>
+  <meta name="description" content="defineProperty"/>
+  <meta name="keywords" content="defineProperty"/>
+  <title>Object.defineProperty</title>
+
+</head>
+<body>
+<script>
+  // 隐式
+  const obj1 = {};
+  const descriptor = Object.create(null); // 没有继承的属性
+  // 默认没有enumerable，没有configurable，没有writable
+  descriptor.value = 'static';
+  Object.defineProperty(obj1, 'key', descriptor);
+  console.log('obj1', obj1);
+</script>
+
+<script>
+  // 显式
+  const obj2 = {};
+  Object.defineProperty(obj2, 'key', {
+    enumerable: false,
+    configurable: false,
+    writable: false,
+    value: 'static',
+  })
+  console.log('obj2', obj2);
+</script>
+</body>
+</html>
